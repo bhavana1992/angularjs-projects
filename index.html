@@ -1,0 +1,26 @@
+<script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src= "controller.js"></script>
+ 
+<div ng-app="HelloUserApp" ng-controller="HelloUserController">
+<form>
+<span>
+<input type="text" placeholder="Search" ng-model="searchbox"> 
+</span> 
+<span>
+<input type="text" placeholder="add new item" ng-model="newData">
+  <button ng-click="addEntry()">add</button>
+</span>
+
+    <table>
+    <tr ng-repeat="x in records|filter:searchbox" ng-class="{'muted':isTemp($index)}">
+    <td>{{$index+1}}</td>
+     <td> {{ x.name }} </td>
+     <td>
+        <button  ng-click="deleteRow(x)" >Delete </button>
+      </td>
+
+    </tr>
+  </table>
+  </form>
+  
+ </div>
